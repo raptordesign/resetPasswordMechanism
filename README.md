@@ -1,38 +1,42 @@
+**Functionality**
+Refer to the Sequence Diagram to get an overview of the Reset Password functionality.
 
-##### PRE - REQUISITE #####
+**Prerequisites**
+Prerequisites to run the scripts:
+  Install the crypto python library using 
+    "python3 -m pip install -r requirements.txt"
+    
+**Component Diagram**
 
-Install the crypto python library using 
+ ______Zone Controller________                           __________FTC__________
+|   createAuthCode.py         |                         |  generateResetKey.py   |
+|   ftc_public_key.pem        |                         |  ftc_private_key.pem   |
+|_____________________________|                         |________________________|
 
-"python3 -m pip install -r requirements.txt"
-
-
-Refer to the design diagram to get an overview of how the Reset Password Mechanism works.
-
-
-
-------- Auth Code ------
-
-SCENARIO: When the user forgets his password, he will download an authCode from the UI
-
-Run "python3 createAuthCode.py" to create an authCode. This will be saved into the currrent folder.
-
-
-
-------- Generate Reset Key from Auth Code ------
-
-SCENARIO: Upon receiving the authCode, FTC will process it and generate the resetKey
-
-Ensure the authCode.encrypted is in the current folder. Run "python3 generateResetKey.py" to process authCode.encrypted and create a resetKey.
-
-
-
-------- Verify Reset Key -------
-
-SCENARIO: FTC gives the user the resetKey. Now, the user uploads the resetKey in the ZC WebApp. The ZC verifies the resetKey and allows the user to reset his password.
-
-Ensure the resetKey.encrypted is in the current folder. Run "python3 verifyResetKey.py" to verify the resetKey. 
-
-
+**Reset Password steps:**
+User forgets password.
+User Clicks on Forgot Password.
+Application ask the user: "Do you have the Reset Key?"
+User selects "No".
+Application generates an "Auth Key" and downloads the key.
+   To FTC : Generating Auth Key can be done by running the following command.
+   xxxxxxxxxxxxxxx
+Application asks user to share the Auth Key with the Admin.
+User shares Auth Key with the Admin and requests for a Reset Key. 
+Admin sends the Auth Key to FTC.
+FTC verifies the Auth Key and generates Reset Key.
+   To FTC : Verifying Auth Key and generating Reset Key can be done by running the following command:
+    xxxxxxxxxxxxxxx
+FTC shares the Reset Key with the Admin.
+Admin shares the Reset Key with the User.
+User clicks on Forgot Password link again.
+Application ask the user: "Do you have the Reset Key?"
+This time, the User selects "Yes".
+Application asks the User to upload the Reset Key.
+User uploads the Reset Key.
+Application verfies the Reset Key and allows User to Reset the password.
+    To FTC : Verifying Reset Key and authorizing the User to change password can be done by running the following command.
+    xxxxxxxxxxxxxxx
 
 
 
