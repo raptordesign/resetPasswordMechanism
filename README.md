@@ -44,3 +44,4 @@ FTC must keep the ftc_private_key.pem file highly secure. This file will be used
 
 The resetCipherPriv.pem and resetCipherPublic.pem files will be created on the ZC during the resetPassword process. 
 
+![alt text](https://github.com/AstralPresence/resetPasswordMechanism/blob/master/ForgotPassword.jpg?raw=true)
