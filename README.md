@@ -8,25 +8,34 @@ Prerequisites to run the scripts:
     
 **Component Diagram**
 
- ______Zone Controller________                           __________FTC__________
-|   createAuthCode.py         |                         |  generateResetKey.py   |
-|   ftc_public_key.pem        |                         |  ftc_private_key.pem   |
-|_____________________________|                         |________________________|
+ =======Zone Controller=======                  
+ |   createAuthCode.py       |                              
+ |   ftc_public_key.pem      |                         
+ |===========================|                     
 
+============ FTC ============
+ |  generateResetKey.py    |
+ |  ftc_private_key.pem    |
+ |=========================|
+ 
 **Reset Password steps:**
 User forgets password.
 User Clicks on Forgot Password.
 Application ask the user: "Do you have the Reset Key?"
 User selects "No".
 Application generates an "Auth Key" and downloads the key.
-   To FTC : Generating Auth Key can be done by running the following command.
-   xxxxxxxxxxxxxxx
+
+  - To FTC : Generating Auth Key can be done by running the following command.
+   python3 createAuthCode.py -
+   
 Application asks user to share the Auth Key with the Admin.
 User shares Auth Key with the Admin and requests for a Reset Key. 
 Admin sends the Auth Key to FTC.
 FTC verifies the Auth Key and generates Reset Key.
-   To FTC : Verifying Auth Key and generating Reset Key can be done by running the following command:
-    xxxxxxxxxxxxxxx
+
+   - To FTC : Verifying Auth Key and generating Reset Key can be done by running the following command:
+    python3 generateResetKey.py -
+    
 FTC shares the Reset Key with the Admin.
 Admin shares the Reset Key with the User.
 User clicks on Forgot Password link again.
@@ -35,8 +44,9 @@ This time, the User selects "Yes".
 Application asks the User to upload the Reset Key.
 User uploads the Reset Key.
 Application verfies the Reset Key and allows User to Reset the password.
-    To FTC : Verifying Reset Key and authorizing the User to change password can be done by running the following command.
-    xxxxxxxxxxxxxxx
+
+   - To FTC : Verifying Reset Key and authorizing the User to change password can be done by running the following command.
+    python3 verifyResetKey.py -
 
 
 
