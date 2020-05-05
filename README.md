@@ -8,15 +8,13 @@ Prerequisites to run the scripts:
     
 **Component Diagram**
 
- =======Zone Controller=======                  
- |   createAuthCode.py       |                              
- |   ftc_public_key.pem      |                         
- |===========================|                     
+Zone Controller        
+1. createAuthCode.py 
+2.  ftc_public_key.pem
 
-============ FTC ============
- |  generateResetKey.py    |
- |  ftc_private_key.pem    |
- |=========================|
+FTC
+1. generateResetKey.py
+2. ftc_private_key.pem
  
 **Reset Password steps:**
 User forgets password.
