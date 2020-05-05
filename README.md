@@ -24,7 +24,7 @@ User selects "No".
 Application generates an "Auth Key" and downloads the key.
 
   - To FTC : Generating Auth Key can be done by running the following command.
-   python3 createAuthCode.py -
+   python3 createAuthCode.py 
    
 Application asks user to share the Auth Key with the Admin.
 User shares Auth Key with the Admin and requests for a Reset Key. 
@@ -32,7 +32,7 @@ Admin sends the Auth Key to FTC.
 FTC verifies the Auth Key and generates Reset Key.
 
    - To FTC : Verifying Auth Key and generating Reset Key can be done by running the following command:
-    python3 generateResetKey.py -
+    python3 generateResetKey.py 
     
 FTC shares the Reset Key with the Admin.
 Admin shares the Reset Key with the User.
@@ -44,7 +44,7 @@ User uploads the Reset Key.
 Application verfies the Reset Key and allows User to Reset the password.
 
    - To FTC : Verifying Reset Key and authorizing the User to change password can be done by running the following command.
-    python3 verifyResetKey.py -
+    python3 verifyResetKey.py 
 
 
 
